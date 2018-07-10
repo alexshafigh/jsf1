@@ -11,50 +11,88 @@
       <title>Validating Form Data</title>
          <h:outputStylesheet name ="style.css" library="css" />
       </h:head>
-
       <h:body>
          <h:form>
-            
-            <h1> Registration Form</h1>
-            <p> Please fill in all fields and click Register   </p>
-            <h:panelGrid columns="3"  style="height: 960px;width: 456px;">
-               <h:graphicImage name="1.jpg" library="images" style = "height: 50px;width: 50px;"/>
-               <h:outputLabel >Enter Your First Name</h:outputLabel>
-               <h:inputText id ="firstnameInputText" />
 
-               <h:graphicImage file = "2.png" library="images" style="height: 50px;width: 50px;" />
-               <h:outputLabel >Enter Your Last Name</h:outputLabel>
-               <h:inputText id ="lastNameInputText" />
+            <h1>Please fill out the following form:</h1>
+            <p>All fields are required and must contain valid information</p>
+            <h:panelGrid columns="3">
+            <h:outputText value="Name:"/>
+            <h:inputText id="nameInputText" required="true"
+                         requiredMessage="Please enter your name"
+                         value="#{ValidateBean.name}"
+                         validatorMessage="Name must be fewer than 30 characters">
+               <f:validateLength maximum="30" />
+            </h:inputText>
+            <h:message for="nameInputText" styleClass="error"/>
 
-               <h:graphicImage name = "3.png" library="images" style = "height: 50px;width: 50px;"/>
-               <h:outputLabel >Enter Your EMail</h:outputLabel>
-               <h:inputText id ="EmailInputText" />
+            <h:outputText value="E-mail:"/>
+            <h:inputText id="emailInputText" required="true"
+                           requiredMessage="Please enter a valid e-mail address"
+                           value="#{ValidateBean.email}"
+                           validatorMessage="Invalid e-mail address format">
+            <f:validateRegex pattern="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" />
+            </h:inputText>
+            <h:message for="emailInputText" styleClass="error"/>
 
-               <h:graphicImage name = "4.png" library="images" style = "height: 50px;width: 50px;"/>
-               <h:outputLabel >Enter Your PhoneNumber</h:outputLabel>
-               <h:inputText id ="PhoneInputText" />
+            <h:outputText value="Phone:"/>
+            <h:inputText id="phoneInputText" required="true"
+                           requiredMessage="Please enter a valid phone number"
+                           value="#{ValidateBean.phone}"
+                           validatorMessage="Invalid phone number format">
+            <f:validateRegex pattern="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}" />
+            </h:inputText>
+            <h:message for="phoneInputText" styleClass="error"/>
+
             </h:panelGrid>
-
-            <h:outputLabel> Select One Of The Items</h:outputLabel>
-            <h:selectOneMenu id="bookSelectOneMenu" >
-               <f:selectItem itemValue="CHTP" itemLabel="C HoW To Program" />
-               <f:selectItem itemValue="JHTP" itemLabel="Java HoW To Program" />
-               <f:selectItem itemValue="C#HTP" itemLabel="C# HoW To Program" />
-            </h:selectOneMenu>
-            <p>
-
-            </p>
-            <h:outputLabel> Click On The Link Below </h:outputLabel>
-            <p><h:outputLink value="http://www.gmail.com">
-               Click Me To Take You To Heaven</h:outputLink></p>
-
-            <h:outputLabel style=" background-color: crimson" > Select Operating System  </h:outputLabel>
-            <h:selectOneRadio id="osSelectRadio">
-               <f:selectItem itemValue="WinVista" itemLabel="Windows Vista"/>
-               <f:selectItem itemValue="Win7" itemLabel="Windows 7"/>
-               <f:selectItem itemValue="WinXP" itemLabel="Windows XP"/>
-            </h:selectOneRadio>
-         <h:commandButton value="Register"/>
+            <h:commandButton value="Submit"/>
+            <h:outputText escape="false" value="#{ValidateBean.result}"/>
          </h:form>
       </h:body>
 </html>
+
+
+
+
+
+            <!--<h1> Registration Form</h1>-->
+            <!--<p> Please fill in all fields and click Register   </p>-->
+            <!--<h:panelGrid columns="3"  style="height: 960px;width: 456px;">-->
+               <!--<h:graphicImage name="1.jpg" library="images" style = "height: 50px;width: 50px;"/>-->
+               <!--<h:outputLabel >Enter Your First Name</h:outputLabel>-->
+               <!--<h:inputText id ="firstnameInputText" />-->
+
+               <!--<h:graphicImage file = "2.png" library="images" style="height: 50px;width: 50px;" />-->
+               <!--<h:outputLabel >Enter Your Last Name</h:outputLabel>-->
+               <!--<h:inputText id ="lastNameInputText" />-->
+
+               <!--<h:graphicImage name = "3.png" library="images" style = "height: 50px;width: 50px;"/>-->
+               <!--<h:outputLabel >Enter Your EMail</h:outputLabel>-->
+               <!--<h:inputText id ="EmailInputText" />-->
+
+               <!--<h:graphicImage name = "4.png" library="images" style = "height: 50px;width: 50px;"/>-->
+               <!--<h:outputLabel >Enter Your PhoneNumber</h:outputLabel>-->
+               <!--<h:inputText id ="PhoneInputText" />-->
+            <!--</h:panelGrid>-->
+
+            <!--<h:outputLabel> Select One Of The Items</h:outputLabel>-->
+            <!--<h:selectOneMenu id="bookSelectOneMenu" >-->
+               <!--<f:selectItem itemValue="CHTP" itemLabel="C HoW To Program" />-->
+               <!--<f:selectItem itemValue="JHTP" itemLabel="Java HoW To Program" />-->
+               <!--<f:selectItem itemValue="C#HTP" itemLabel="C# HoW To Program" />-->
+            <!--</h:selectOneMenu>-->
+            <!--<p>-->
+
+            <!--</p>-->
+            <!--<h:outputLabel> Click On The Link Below </h:outputLabel>-->
+            <!--<p><h:outputLink value="http://www.gmail.com">-->
+               <!--Click Me To Take You To Heaven</h:outputLink></p>-->
+
+            <!--<h:outputLabel style=" background-color: crimson" > Select Operating System  </h:outputLabel>-->
+            <!--<h:selectOneRadio id="osSelectRadio">-->
+               <!--<f:selectItem itemValue="WinVista" itemLabel="Windows Vista"/>-->
+               <!--<f:selectItem itemValue="Win7" itemLabel="Windows 7"/>-->
+               <!--<f:selectItem itemValue="WinXP" itemLabel="Windows XP"/>-->
+            <!--</h:selectOneRadio>-->
+         <!--<h:commandButton value="Register"/>-->
+

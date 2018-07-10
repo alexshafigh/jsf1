@@ -12,4 +12,20 @@
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
+    <context-param>
+        <param-name>JDBC-DRIVER</param-name>
+        <param-value>com.mysql.jdbc.Driver</param-value>
+    </context-param>
+    <context-param>
+        <param-name>DB-SERVER</param-name>
+        <param-value>jdbc:mysql://localhost:3306/alix</param-value>
+    </context-param>
+    <context-param>
+        <param-name>DB-USER</param-name>
+        <param-value>root</param-value>
+    </context-param>
+    <context-param>
+        <param-name>DB-PASSWORD</param-name>
+        <param-value>123456789</param-value>
+    </context-param>
 </web-app>
