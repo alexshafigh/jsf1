@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+>
+
+
+      <h:head>
+      <title>Validating Form Data</title>
+         <h:outputStylesheet name ="style.css" library="css" />
+      </h:head>
+
+      <h:body>
+         <h:form>
+            
+            <h1> Registration Form</h1>
+            <p> Please fill in all fields and click Register   </p>
+            <h:panelGrid columns="3"  style="height: 960px;width: 456px;">
+               <h:graphicImage name="1.jpg" library="images" style = "height: 50px;width: 50px;"/>
+               <h:outputLabel >Enter Your First Name</h:outputLabel>
+               <h:inputText id ="firstnameInputText" />
+
+               <h:graphicImage file = "2.png" library="images" style="height: 50px;width: 50px;" />
+               <h:outputLabel >Enter Your Last Name</h:outputLabel>
+               <h:inputText id ="lastNameInputText" />
+
+               <h:graphicImage name = "3.png" library="images" style = "height: 50px;width: 50px;"/>
+               <h:outputLabel >Enter Your EMail</h:outputLabel>
+               <h:inputText id ="EmailInputText" />
+
+               <h:graphicImage name = "4.png" library="images" style = "height: 50px;width: 50px;"/>
+               <h:outputLabel >Enter Your PhoneNumber</h:outputLabel>
+               <h:inputText id ="PhoneInputText" />
+            </h:panelGrid>
+
+            <h:outputLabel> Select One Of The Items</h:outputLabel>
+            <h:selectOneMenu id="bookSelectOneMenu" >
+               <f:selectItem itemValue="CHTP" itemLabel="C HoW To Program" />
+               <f:selectItem itemValue="JHTP" itemLabel="Java HoW To Program" />
+               <f:selectItem itemValue="C#HTP" itemLabel="C# HoW To Program" />
+            </h:selectOneMenu>
+            <p>
+
+            </p>
+            <h:outputLabel> Click On The Link Below </h:outputLabel>
+            <p><h:outputLink value="http://www.gmail.com">
+               Click Me To Take You To Heaven</h:outputLink></p>
+
+            <h:outputLabel style=" background-color: crimson" > Select Operating System  </h:outputLabel>
+            <h:selectOneRadio id="osSelectRadio">
+               <f:selectItem itemValue="WinVista" itemLabel="Windows Vista"/>
+               <f:selectItem itemValue="Win7" itemLabel="Windows 7"/>
+               <f:selectItem itemValue="WinXP" itemLabel="Windows XP"/>
+            </h:selectOneRadio>
+         <h:commandButton value="Register"/>
+         </h:form>
+      </h:body>
+</html>
